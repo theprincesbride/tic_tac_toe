@@ -40,75 +40,143 @@ def game()
   sleep 2
   turn = coin_toss
   loop do
-  if turn == "player_turn"
-    display_gameboard(gameboard_positions_sample)
-    player_choice = player1.turn
-    if player_choice == "1" && board_position1 == "-"
-        gameboard[0].shift
-        gameboard[0].unshift("X")
-        display_gameboard(gameboard)
-        check_game_condition(gameboard)
-        ##turn == "computer_turn"
+    if turn == "player_turn"
+        p "--------------"
+        display_gameboard(gameboard_positions_sample)
+        player_choice = player1.turn
+        if player_choice == "1" && board_position1 == "-"
+            gameboard[0].shift
+            gameboard[0].unshift("X")
+            display_gameboard(gameboard)
+            ##check_game_condition(gameboard)
+            turn = "computer_turn"
 
-    elsif player_choice == "2" && board_position2 == "-"
-        gameboard[0].delete_at(1)
-        gameboard[0].insert(1, "X")
-        display_gameboard(gameboard)
-        check_game_condition(gameboard)
-        ##computer turn
-    elsif player_choice == "3" && board_position3 == "-"
+        elsif player_choice == "2" && board_position2 == "-"
+            gameboard[0].delete_at(1)
+            gameboard[0].insert(1, "X")
+            display_gameboard(gameboard)
+            ##check_game_condition(gameboard)
+            turn = "computer_turn"
 
+        elsif player_choice == "3" && board_position3 == "-"
+            gameboard[0].pop
+            gameboard[0].push("X")
+            display_gameboard(gameboard)
+            ##check_game_condition(gameboard)
+            turn = "computer_turn"
 
-    elsif player_choice == "4" && board_position4 == "-"
+        elsif player_choice == "4" && board_position4 == "-"
+            gameboard[1].shift
+            gameboard[1].unshift("X")
+            display_gameboard(gameboard)
+            ##check_game_condition(gameboard)
+            turn = "computer_turn"
 
-    elsif player_choice == "5" && board_position5 == "-"
+        elsif player_choice == "5" && board_position5 == "-"
+            gameboard[1].delete_at(1)
+            gameboard[1].insert(1, "X")
+            display_gameboard(gameboard)
+            ##check_game_condition(gameboard)
+            turn = "computer_turn"
+            binding.pry
 
-    elsif player_choice == "6" && board_position6 == "-"
+        elsif player_choice == "6" && board_position6 == "-"
+            gameboard[1].pop
+            gameboard[1].push("X")
+            display_gameboard(gameboard)
+            ##check_game_condition(gameboard)
+            turn = "computer_turn"
 
-    elsif player_choice == "7" && board_position7 == "-"
+        elsif player_choice == "7" && board_position7 == "-"
+            gameboard[2].shift
+            gameboard[2].unshift("X")
+            display_gameboard(gameboard)
+            ##check_game_condition(gameboard)
+            turn = "computer_turn"
 
-    elsif player_choice == "8" && board_position8 == "-"
+        elsif player_choice == "8" && board_position8 == "-"
+            gameboard[2].delete_at(1)
+            gameboard[2].insert(1, "X")
+            display_gameboard(gameboard)
+            ##check_game_condition(gameboard)
+            turn = "computer_turn"
 
-    elsif player_choice == "9" && board_position9 == "-"
+        elsif player_choice == "9" && board_position9 == "-"
+            gameboard[2].pop
+            gameboard[2].push("X")
+            display_gameboard(gameboard)
+            ##check_game_condition(gameboard)
+            turn = "computer_turn"
 
-    else
-        puts "Please choose an empty position between 1 and 9."
-        turn == "player_turn"
-    end
-  elsif turn == "computer_turn"
-    computer_choice = player2.turn
-    if computer_choice == "1" && board_position1 == "-"
-        gameboard[0].shift
-        gameboard[0].unshift("O")
-        display_gameboard(gameboard)
-        check_game_condition(gameboard)
-        turn == "player_turn"
-    elsif computer_choice == "2" && board_position2 == "-"
-        gameboard[0].delete_at(1)
-        gameboard[0].insert(1, "O")
-        display_gameboard(gameboard)
-        check_game_condition(gameboard)
-        turn == "computer_turn"
+        else
+            puts "Please choose an empty position between 1 and 9."
+            turn = "player_turn"
+        end
 
-    elsif computer_choice == "3" && board_position3 == "-"
+    elsif turn == "computer_turn"
+        computer_choice = player2.turn
+        if computer_choice == "1" && board_position1 == "-"
+            gameboard[0].shift
+            gameboard[0].unshift("O")
+            display_gameboard(gameboard)
+            ##check_game_condition(gameboard)
+            turn = "player_turn"
+        elsif computer_choice == "2" && board_position2 == "-"
+            gameboard[0].delete_at(1)
+            gameboard[0].insert(1, "O")
+            display_gameboard(gameboard)
+            ##check_game_condition(gameboard)
+            turn = "player_turn"
 
-    elsif computer_choice == "4" && board_position4 == "-"
+        elsif computer_choice == "3" && board_position3 == "-"
+            gameboard[0].pop
+            gameboard[0].push("O")
+            display_gameboard(gameboard)
+            ##check_game_condition(gameboard)
+            turn = "player_turn"
 
-    elsif computer_choice == "5" && board_position5 == "-"
-
-    elsif computer_choice == "6" && board_position6 == "-"
-
-    elsif computer_choice == "7" && board_position7 == "-"
-
-    elsif computer_choice == "8" && board_position8 == "-"
-
-    elsif computer_choice == "9" && board_position9 == "-"
-
+        elsif computer_choice == "4" && board_position4 == "-"
+            gameboard[1].shift
+            gameboard[1].unshift("O")
+            display_gameboard(gameboard)
+            ##check_game_condition(gameboard)
+            turn = "player_turn"
+        elsif computer_choice == "5" && board_position5 == "-"
+            gameboard[1].delete_at(1)
+            gameboard[1].insert(1, "O")
+            display_gameboard(gameboard)
+            check_game_condition(gameboard)
+            turn = "player_turn"
+        elsif computer_choice == "6" && board_position6 == "-"
+            gameboard[1].pop
+            gameboard[1].push("O")
+            display_gameboard(gameboard)
+            ##check_game_condition(gameboard)
+            turn = "player_turn"
+        elsif computer_choice == "7" && board_position7 == "-"
+            gameboard[2].shift
+            gameboard[2].unshift("O")
+            display_gameboard(gameboard)
+            ##check_game_condition(gameboard)
+            turn = "player_turn"
+        elsif computer_choice == "8" && board_position8 == "-"
+            gameboard[2].delete_at(1)
+            gameboard[2].insert(1, "O")
+            display_gameboard(gameboard)
+            ##check_game_condition(gameboard)
+            turn = "player_turn"
+        elsif computer_choice == "9" && board_position9 == "-"
+            gameboard[2].pop
+            gameboard[2].push("O")
+            display_gameboard(gameboard)
+            ##check_game_condition(gameboard)
+            turn = "player_turn"
+        else
+            puts "Computer to reroll."
+            turn = "computer_turn"
+        end
     end
 end
-
-  end
-
 end
 
 
@@ -148,16 +216,50 @@ def display_gameboard(array)
 end
 
 def check_game_condition(array)
-    board_position1 = array[0][0]
-    board_position2 = array[0][1]
-    board_position3 = array[0][2]
-    board_position4 = array[1][0]
-    board_position5 = array[1][1]
-    board_position6 = array[1][2]
-    board_position7 = array[2][0]
-    board_position8 = array[2][1]
-    board_position9 = array[2][2]
-
+    position1 = array[0][0]
+    position2 = array[0][1]
+    position3 = array[0][2]
+    position4 = array[1][0]
+    position5 = array[1][1]
+    position6 = array[1][2]
+    position7 = array[2][0]
+    position8 = array[2][1]
+    position9 = array[2][2]
+    if position1 == "X" && position2 == "X" && position3 == "X"
+        return "player_win"
+    elsif position1 == "X" && position5 == "X" && position9 == "X"
+        return "player_win"
+    elsif position1 == "X" && position4 == "X" && position7 == "X"
+        return "player_win"
+    elsif position2 == "X" && position5 == "X" && position8 == "X"
+        return "player_win"
+    elsif position3 == "X" && position6 == "X" && position9 == "X"
+        return "player_win"
+    elsif position3 == "X" && position5 == "X" && position7 == "X"
+        return "player_win"
+    elsif position4 == "X" && position5 == "X" && position6 == "X"
+        return "player_win"
+    elsif position7 == "X" && position8 == "X" && position9 == "X"
+        return "player_win"
+    elsif position1 == "O" && position2 == "O" && position3 == "O"
+        return "computer_win"
+    elsif position1 == "O" && position5 == "O" && position9 == "O"
+        return "computer_win"
+    elsif position1 == "O" && position4 == "O" && position7 == "O"
+        return "computer_win"
+    elsif position2 == "O" && position5 == "O" && position8 == "O"
+        return "computer_win"
+    elsif position3 == "O" && position6 == "O" && position9 == "O"
+        return "computer_win"
+    elsif position3 == "O" && position5 == "O" && position7 == "O"
+        return "computer_win"
+    elsif position4 == "O" && position5 == "O" && position6 == "O"
+        return "computer_win"
+    elsif position7 == "O" && position8 == "O" && position9 == "O"
+        return "computer_win"
+    else
+        return "continue"
+    end
 end
 
 
