@@ -1,5 +1,31 @@
 require 'pry-byebug'
-gameboard = [
+
+
+
+
+class Player
+    attr_accessor :name, :board_marker
+    def initialize(name, player_number, board_marker)
+        @name = name
+        @player_number = player_number
+        @board_marker = board_marker
+    end
+
+    ##turn
+
+end
+
+class Computer < Player
+#turn random choice
+
+end
+
+player1 = Player.new("Player 1", 1, "X")
+player2 = Computer.new("Player 2", 2, "O")
+
+
+def game()
+    gameboard = [
 
 ['-', '-', '-'],
 ['-', '-', '-'],
@@ -25,36 +51,13 @@ board_position8 = gameboard[2][1]
 board_position9 = gameboard[2][2]
 
 
-
-
-
-
-class Player
-    attr_accessor :name, :board_marker
-    def initialize(name, player_number, board_marker)
-        @name = name
-        @player_number = player_number
-        @board_marker = board_marker
-    end
-
-    ##turn
-
-end
-
-class Computer < Player
-#turn random choice
-
-end
-
-player1 = Player.new("Player 1", 1, "X")
-player2 = Computer.new("Player 2", 2, "O")
-
-def game()
-    puts "Welcome to Tic-Tac-Toe!  The first player to reach 3 in a row wins!"
-    #puts gameboard
+    puts "Welcome to Tic-Tac-Toe!  You will be competing against a computer opponent.  The first player to reach 3 in a row wins!"
+    display_gameboard(gameboard)
+    sleep 2
     coin_toss()
 
 end
+
 
 def coin_toss()
     puts "Are you ready to begin?  Type heads or tails to determine who goes first."
@@ -64,6 +67,7 @@ def coin_toss()
 
     if choice.eql?('heads') || choice.eql?('tails')
         puts "You chose #{choice}.  Let's toss the coin."
+        sleep 2
         coin_land = rand(1..2)
         if coin_land == 1 && choice == 'heads'
             puts "Congratulations, the coin landed on heads.  You win!  You go first."
@@ -84,5 +88,12 @@ def coin_toss()
     end
 end
 
+def display_gameboard(array)
+    p array[0]
+    p array[1]
+    p array[2]
+end
 
-coin_toss()
+
+
+game()
