@@ -11,20 +11,36 @@ class Player
         @board_marker = board_marker
     end
 
-    ##turn
+    def turn
+        puts "It is your turn!  Please type in the number representing the position you would like to place your mark."
+        player_position = gets
+        player_position = player_position.chomp
+    end
 
 end
 
 class Computer < Player
-#turn random choice
+
+def turn
+    puts "It is your opponent's turn!  Please wait for them to make their decision."
+    sleep 5
+    computer_position = rand(1..9).to_s
+end
 
 end
 
 player1 = Player.new("Player 1", 1, "X")
 player2 = Computer.new("Player 2", 2, "O")
+player_turn = player1.turn
+computer_turn = player2.turn
+
 
 
 def game()
+
+
+
+
     gameboard = [
 
 ['-', '-', '-'],
@@ -52,9 +68,10 @@ board_position9 = gameboard[2][2]
 
 
     puts "Welcome to Tic-Tac-Toe!  You will be competing against a computer opponent.  The first player to reach 3 in a row wins!"
+    ##binding.pry
     display_gameboard(gameboard)
     sleep 2
-    coin_toss()
+    coin_toss
 
 end
 
@@ -71,16 +88,16 @@ def coin_toss()
         coin_land = rand(1..2)
         if coin_land == 1 && choice == 'heads'
             puts "Congratulations, the coin landed on heads.  You win!  You go first."
-            #player 1 turn
+            player_turn
         elsif coin_land == 2 && choice == 'heads'
             puts "I'm sorry, the coin landed on tails.  Your opponent goes first."
-            #player 2 turn
+            computer_turn
         elsif coin_land == 1 && choice == 'tails'
             puts "I'm sorry, the coin landed on heads.  Your opponent goes first."
-            #player 2 turn
+            computer_turn
         elsif coin_land == 2 && choice == 'tails'
             puts "Congratulations, the coin landed on tails.  You win!  You go first."
-            #player 1 turn
+            player_turn
         end
     elsif !choice.eql?('heads') || !choice.eql?('tails')
             puts "Let's start over, please choose heads or tails"
