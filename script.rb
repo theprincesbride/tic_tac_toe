@@ -35,7 +35,6 @@ def game()
 
 
   puts "Welcome to Tic-Tac-Toe!  You will be competing against a computer opponent.  The first player to reach 3 in a row wins!"
-  ##binding.pry
   display_gameboard(gameboard)
   sleep 2
   turn = coin_toss
@@ -47,64 +46,91 @@ def game()
         if player_choice == "1" && board_position1 == "-"
             gameboard[0].shift
             gameboard[0].unshift("X")
+            board_position1 = "X"
             display_gameboard(gameboard)
+            result = check_game_condition(gameboard)
+            game_status(result)
             ##check_game_condition(gameboard)
             turn = "computer_turn"
 
         elsif player_choice == "2" && board_position2 == "-"
             gameboard[0].delete_at(1)
             gameboard[0].insert(1, "X")
+            board_position2 = "X"
             display_gameboard(gameboard)
+            result = check_game_condition(gameboard)
+            game_status(result)
             ##check_game_condition(gameboard)
             turn = "computer_turn"
 
         elsif player_choice == "3" && board_position3 == "-"
             gameboard[0].pop
             gameboard[0].push("X")
+            board_position3 = "X"
             display_gameboard(gameboard)
+            result = check_game_condition(gameboard)
+            game_status(result)
             ##check_game_condition(gameboard)
             turn = "computer_turn"
 
         elsif player_choice == "4" && board_position4 == "-"
             gameboard[1].shift
             gameboard[1].unshift("X")
+            board_position4 = "X"
             display_gameboard(gameboard)
+            result = check_game_condition(gameboard)
+            game_status(result)
             ##check_game_condition(gameboard)
             turn = "computer_turn"
 
         elsif player_choice == "5" && board_position5 == "-"
             gameboard[1].delete_at(1)
             gameboard[1].insert(1, "X")
+            board_position5 = "X"
             display_gameboard(gameboard)
+            result = check_game_condition(gameboard)
+            game_status(result)
             ##check_game_condition(gameboard)
             turn = "computer_turn"
-            binding.pry
+            ##binding.pry
 
         elsif player_choice == "6" && board_position6 == "-"
             gameboard[1].pop
             gameboard[1].push("X")
+            board_position6 = "X"
             display_gameboard(gameboard)
+            result = check_game_condition(gameboard)
+            game_status(result)
             ##check_game_condition(gameboard)
             turn = "computer_turn"
 
         elsif player_choice == "7" && board_position7 == "-"
             gameboard[2].shift
             gameboard[2].unshift("X")
+            board_position7 = "X"
             display_gameboard(gameboard)
+            result = check_game_condition(gameboard)
+            game_status(result)
             ##check_game_condition(gameboard)
             turn = "computer_turn"
 
         elsif player_choice == "8" && board_position8 == "-"
             gameboard[2].delete_at(1)
             gameboard[2].insert(1, "X")
+            board_position8 = "X"
             display_gameboard(gameboard)
+            result = check_game_condition(gameboard)
+            game_status(result)
             ##check_game_condition(gameboard)
             turn = "computer_turn"
 
         elsif player_choice == "9" && board_position9 == "-"
             gameboard[2].pop
             gameboard[2].push("X")
+            board_position9 = "X"
             display_gameboard(gameboard)
+            result = check_game_condition(gameboard)
+            game_status(result)
             ##check_game_condition(gameboard)
             turn = "computer_turn"
 
@@ -118,58 +144,139 @@ def game()
         if computer_choice == "1" && board_position1 == "-"
             gameboard[0].shift
             gameboard[0].unshift("O")
+            board_position1 = "O"
             display_gameboard(gameboard)
+            result = check_game_condition(gameboard)
+            game_status(result)
             ##check_game_condition(gameboard)
             turn = "player_turn"
         elsif computer_choice == "2" && board_position2 == "-"
             gameboard[0].delete_at(1)
             gameboard[0].insert(1, "O")
+            board_position2 = "O"
             display_gameboard(gameboard)
+            result = check_game_condition(gameboard)
+            game_status(result)
             ##check_game_condition(gameboard)
             turn = "player_turn"
 
         elsif computer_choice == "3" && board_position3 == "-"
             gameboard[0].pop
             gameboard[0].push("O")
+            board_position3 = "O"
             display_gameboard(gameboard)
+            result = check_game_condition(gameboard)
+            game_status(result)
             ##check_game_condition(gameboard)
             turn = "player_turn"
 
         elsif computer_choice == "4" && board_position4 == "-"
             gameboard[1].shift
             gameboard[1].unshift("O")
+            board_position4 = "O"
             display_gameboard(gameboard)
+            result = check_game_condition(gameboard)
+            game_status(result)
             ##check_game_condition(gameboard)
             turn = "player_turn"
         elsif computer_choice == "5" && board_position5 == "-"
             gameboard[1].delete_at(1)
             gameboard[1].insert(1, "O")
+            board_position5 = "O"
             display_gameboard(gameboard)
-            check_game_condition(gameboard)
+            result = check_game_condition(gameboard)
+            game_status(result)
+            ##check_game_condition(gameboard)
             turn = "player_turn"
         elsif computer_choice == "6" && board_position6 == "-"
             gameboard[1].pop
             gameboard[1].push("O")
+            board_position6 = "O"
             display_gameboard(gameboard)
+            result = check_game_condition(gameboard)
+            game_status(result)
             ##check_game_condition(gameboard)
             turn = "player_turn"
         elsif computer_choice == "7" && board_position7 == "-"
             gameboard[2].shift
             gameboard[2].unshift("O")
+            board_position7 = "O"
             display_gameboard(gameboard)
-            ##check_game_condition(gameboard)
+            result = check_game_condition(gameboard)
+            game_status(result)
             turn = "player_turn"
         elsif computer_choice == "8" && board_position8 == "-"
             gameboard[2].delete_at(1)
             gameboard[2].insert(1, "O")
+            board_position8 = "O"
             display_gameboard(gameboard)
-            ##check_game_condition(gameboard)
+            result = check_game_condition(gameboard)
+            game_status(result)
             turn = "player_turn"
+            # if result == "continue"
+            #     turn = "player_turn"
+            # elsif result == "player_win"
+            #     puts "Congratulations!  You won against your opponent!"
+            #     puts "W---(^_^)---W"
+            #     sleep 2
+            #     puts "Do you want to start a new game?"
+            #     loop do
+            #     game_choice = gets
+            #     game_choice = game_choice.chomp.downcase
+            #     if game_choice == "yes" || game_choice == "y"
+            #         puts "Yay!  You chose to play a new game!"
+            #         game()
+            #     elsif game_choice == "no" || game_choice == "n"
+            #         puts "Thank you for playing tic-tac-toe.  Have a great day!"
+            #         exit
+            #     else
+            #         puts "Do you want to play again?  Type yes, no, y or n."
+            #     end
+            #     end
+            # elsif result == "computer_win"
+            #     puts "I'm sorry, you lost against your opponent!"
+            #     puts "m---(v_v)---m"
+            #     sleep 2
+            #     puts "Do you want to start a new game?"
+            #     loop do
+            #     game_choice = gets
+            #     game_choice = game_choice.chomp.downcase
+            #     if game_choice == "yes" || game_choice == "y"
+            #         puts "Yay!  You chose to play a new game!"
+            #         game()
+            #     elsif game_choice == "no" || game_choice == "n"
+            #         puts "Thank you for playing tic-tac-toe.  Have a great day!"
+            #         exit
+            #     else
+            #         puts "Do you want to play again?  Type yes, no, y or n."
+            #     end
+            #     end
+            # elsif result == "tie"
+            #     puts "You tied with your opponent"
+            #     puts "m---(-_-)---m"
+            #     sleep 2
+            #     puts "Do you want to start a new game?"
+            #     loop do
+            #     game_choice = gets
+            #     game_choice = game_choice.chomp.downcase
+            #     if game_choice == "yes" || game_choice == "y"
+            #         puts "Yay!  You chose to play a new game!"
+            #         game()
+            #     elsif game_choice == "no" || game_choice == "n"
+            #         puts "Thank you for playing tic-tac-toe.  Have a great day!"
+            #         exit
+            #     else
+            #         puts "Do you want to play again?  Type yes, no, y or n."
+            #     end
+            #     end
+            # end
         elsif computer_choice == "9" && board_position9 == "-"
             gameboard[2].pop
             gameboard[2].push("O")
+            board_position9 = "O"
             display_gameboard(gameboard)
-            ##check_game_condition(gameboard)
+            result = check_game_condition(gameboard)
+            game_status(result)
             turn = "player_turn"
         else
             puts "Computer to reroll."
@@ -183,8 +290,7 @@ end
 def coin_toss()
     puts "Are you ready to begin?  Type heads or tails to determine who goes first."
     choice = gets
-    choice = choice.chomp
-    choice = choice.downcase
+    choice = choice.chomp.downcase
 
     if choice.eql?('heads') || choice.eql?('tails')
         puts "You chose #{choice}.  Let's toss the coin."
@@ -204,7 +310,7 @@ def coin_toss()
            return "player_turn"
         end
     elsif !choice.eql?('heads') || !choice.eql?('tails')
-            puts "Let's start over, please choose heads or tails"
+            puts "Let's start over, please choose heads or tails."
             coin_toss()
     end
 end
@@ -257,8 +363,70 @@ def check_game_condition(array)
         return "computer_win"
     elsif position7 == "O" && position8 == "O" && position9 == "O"
         return "computer_win"
+    elsif position1 != "-" && position2 != "-" && position3 != "-" && position4 != "-" && position5 != "-" && position6 != "-" && position7 != "-" && position8 != "-" && position9 != "-"
+        return "tie"
     else
         return "continue"
+    end
+end
+
+def game_status(result)
+    if result == "continue"
+
+    elsif result == "player_win"
+        puts "Congratulations!  You won against your opponent!"
+        puts "W---(^_^)---W"
+        sleep 2
+        puts "Do you want to start a new game?"
+        loop do
+        game_choice = gets
+        game_choice = game_choice.chomp.downcase
+        if game_choice == "yes" || game_choice == "y"
+            puts "Yay!  You chose to play a new game!"
+            game()
+        elsif game_choice == "no" || game_choice == "n"
+            puts "Thank you for playing tic-tac-toe.  Have a great day!"
+            exit
+        else
+            puts "Do you want to play again?  Type yes, no, y or n."
+        end
+        end
+    elsif result == "computer_win"
+        puts "I'm sorry, you lost against your opponent!"
+        puts "m---(v_v)---m"
+        sleep 2
+        puts "Do you want to start a new game?"
+        loop do
+        game_choice = gets
+        game_choice = game_choice.chomp.downcase
+        if game_choice == "yes" || game_choice == "y"
+            puts "Yay!  You chose to play a new game!"
+            game()
+        elsif game_choice == "no" || game_choice == "n"
+            puts "Thank you for playing tic-tac-toe.  Have a great day!"
+            exit
+        else
+            puts "Do you want to play again?  Type yes, no, y or n."
+        end
+        end
+    elsif result == "tie"
+        puts "You tied with your opponent"
+        puts "m---(-_-)---m"
+        sleep 2
+        puts "Do you want to start a new game?"
+        loop do
+        game_choice = gets
+        game_choice = game_choice.chomp.downcase
+        if game_choice == "yes" || game_choice == "y"
+            puts "Yay!  You chose to play a new game!"
+            game()
+        elsif game_choice == "no" || game_choice == "n"
+            puts "Thank you for playing tic-tac-toe.  Have a great day!"
+            exit
+        else
+            puts "Do you want to play again?  Type yes, no, y or n."
+        end
+        end
     end
 end
 
