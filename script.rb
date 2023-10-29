@@ -4,7 +4,7 @@ require 'pry-byebug'
 def game()
 
   player1 = Player.new("Player 1", 1, "X")
-  player2 = Computer.new("Player 2", 2, "O")
+  player2 = Computer.new("Player 2", 2, "O", ['1', '2', '3', '4', '5', '6', '7', '8', '9'])
 
 
   gameboard = [
@@ -47,91 +47,90 @@ def game()
             gameboard[0].shift
             gameboard[0].unshift("X")
             board_position1 = "X"
+            player2.choices.delete('1')
             display_gameboard(gameboard)
             result = check_game_condition(gameboard)
             game_status(result)
-            ##check_game_condition(gameboard)
             turn = "computer_turn"
 
         elsif player_choice == "2" && board_position2 == "-"
             gameboard[0].delete_at(1)
             gameboard[0].insert(1, "X")
             board_position2 = "X"
+            player2.choices.delete('2')
             display_gameboard(gameboard)
             result = check_game_condition(gameboard)
             game_status(result)
-            ##check_game_condition(gameboard)
             turn = "computer_turn"
 
         elsif player_choice == "3" && board_position3 == "-"
             gameboard[0].pop
             gameboard[0].push("X")
             board_position3 = "X"
+            player2.choices.delete('3')
             display_gameboard(gameboard)
             result = check_game_condition(gameboard)
             game_status(result)
-            ##check_game_condition(gameboard)
             turn = "computer_turn"
 
         elsif player_choice == "4" && board_position4 == "-"
             gameboard[1].shift
             gameboard[1].unshift("X")
             board_position4 = "X"
+            player2.choices.delete('4')
             display_gameboard(gameboard)
             result = check_game_condition(gameboard)
             game_status(result)
-            ##check_game_condition(gameboard)
             turn = "computer_turn"
 
         elsif player_choice == "5" && board_position5 == "-"
             gameboard[1].delete_at(1)
             gameboard[1].insert(1, "X")
             board_position5 = "X"
+            player2.choices.delete('5')
             display_gameboard(gameboard)
             result = check_game_condition(gameboard)
             game_status(result)
-            ##check_game_condition(gameboard)
             turn = "computer_turn"
-            ##binding.pry
 
         elsif player_choice == "6" && board_position6 == "-"
             gameboard[1].pop
             gameboard[1].push("X")
             board_position6 = "X"
+            player2.choices.delete('6')
             display_gameboard(gameboard)
             result = check_game_condition(gameboard)
             game_status(result)
-            ##check_game_condition(gameboard)
             turn = "computer_turn"
 
         elsif player_choice == "7" && board_position7 == "-"
             gameboard[2].shift
             gameboard[2].unshift("X")
             board_position7 = "X"
+            player2.choices.delete('7')
             display_gameboard(gameboard)
             result = check_game_condition(gameboard)
             game_status(result)
-            ##check_game_condition(gameboard)
             turn = "computer_turn"
 
         elsif player_choice == "8" && board_position8 == "-"
             gameboard[2].delete_at(1)
             gameboard[2].insert(1, "X")
             board_position8 = "X"
+            player2.choices.delete('8')
             display_gameboard(gameboard)
             result = check_game_condition(gameboard)
             game_status(result)
-            ##check_game_condition(gameboard)
             turn = "computer_turn"
 
         elsif player_choice == "9" && board_position9 == "-"
             gameboard[2].pop
             gameboard[2].push("X")
             board_position9 = "X"
+            player2.choices.delete('9')
             display_gameboard(gameboard)
             result = check_game_condition(gameboard)
             game_status(result)
-            ##check_game_condition(gameboard)
             turn = "computer_turn"
 
         else
@@ -148,7 +147,6 @@ def game()
             display_gameboard(gameboard)
             result = check_game_condition(gameboard)
             game_status(result)
-            ##check_game_condition(gameboard)
             turn = "player_turn"
         elsif computer_choice == "2" && board_position2 == "-"
             gameboard[0].delete_at(1)
@@ -157,7 +155,6 @@ def game()
             display_gameboard(gameboard)
             result = check_game_condition(gameboard)
             game_status(result)
-            ##check_game_condition(gameboard)
             turn = "player_turn"
 
         elsif computer_choice == "3" && board_position3 == "-"
@@ -167,7 +164,6 @@ def game()
             display_gameboard(gameboard)
             result = check_game_condition(gameboard)
             game_status(result)
-            ##check_game_condition(gameboard)
             turn = "player_turn"
 
         elsif computer_choice == "4" && board_position4 == "-"
@@ -177,7 +173,6 @@ def game()
             display_gameboard(gameboard)
             result = check_game_condition(gameboard)
             game_status(result)
-            ##check_game_condition(gameboard)
             turn = "player_turn"
         elsif computer_choice == "5" && board_position5 == "-"
             gameboard[1].delete_at(1)
@@ -186,7 +181,6 @@ def game()
             display_gameboard(gameboard)
             result = check_game_condition(gameboard)
             game_status(result)
-            ##check_game_condition(gameboard)
             turn = "player_turn"
         elsif computer_choice == "6" && board_position6 == "-"
             gameboard[1].pop
@@ -195,7 +189,6 @@ def game()
             display_gameboard(gameboard)
             result = check_game_condition(gameboard)
             game_status(result)
-            ##check_game_condition(gameboard)
             turn = "player_turn"
         elsif computer_choice == "7" && board_position7 == "-"
             gameboard[2].shift
@@ -213,63 +206,7 @@ def game()
             result = check_game_condition(gameboard)
             game_status(result)
             turn = "player_turn"
-            # if result == "continue"
-            #     turn = "player_turn"
-            # elsif result == "player_win"
-            #     puts "Congratulations!  You won against your opponent!"
-            #     puts "W---(^_^)---W"
-            #     sleep 2
-            #     puts "Do you want to start a new game?"
-            #     loop do
-            #     game_choice = gets
-            #     game_choice = game_choice.chomp.downcase
-            #     if game_choice == "yes" || game_choice == "y"
-            #         puts "Yay!  You chose to play a new game!"
-            #         game()
-            #     elsif game_choice == "no" || game_choice == "n"
-            #         puts "Thank you for playing tic-tac-toe.  Have a great day!"
-            #         exit
-            #     else
-            #         puts "Do you want to play again?  Type yes, no, y or n."
-            #     end
-            #     end
-            # elsif result == "computer_win"
-            #     puts "I'm sorry, you lost against your opponent!"
-            #     puts "m---(v_v)---m"
-            #     sleep 2
-            #     puts "Do you want to start a new game?"
-            #     loop do
-            #     game_choice = gets
-            #     game_choice = game_choice.chomp.downcase
-            #     if game_choice == "yes" || game_choice == "y"
-            #         puts "Yay!  You chose to play a new game!"
-            #         game()
-            #     elsif game_choice == "no" || game_choice == "n"
-            #         puts "Thank you for playing tic-tac-toe.  Have a great day!"
-            #         exit
-            #     else
-            #         puts "Do you want to play again?  Type yes, no, y or n."
-            #     end
-            #     end
-            # elsif result == "tie"
-            #     puts "You tied with your opponent"
-            #     puts "m---(-_-)---m"
-            #     sleep 2
-            #     puts "Do you want to start a new game?"
-            #     loop do
-            #     game_choice = gets
-            #     game_choice = game_choice.chomp.downcase
-            #     if game_choice == "yes" || game_choice == "y"
-            #         puts "Yay!  You chose to play a new game!"
-            #         game()
-            #     elsif game_choice == "no" || game_choice == "n"
-            #         puts "Thank you for playing tic-tac-toe.  Have a great day!"
-            #         exit
-            #     else
-            #         puts "Do you want to play again?  Type yes, no, y or n."
-            #     end
-            #     end
-            # end
+
         elsif computer_choice == "9" && board_position9 == "-"
             gameboard[2].pop
             gameboard[2].push("O")
@@ -448,11 +385,21 @@ class Player
 end
 
 class Computer < Player
+    attr_accessor :name, :board_marker, :choices
+    def initialize(name, player_number, board_marker, choices)
+        @name = name
+        @player_number = player_number
+        @board_marker = board_marker
+        @choices = choices
+    end
+
 
 def turn
     puts "It is your opponent's turn!  Please wait for them to make their decision."
     sleep 5
-    computer_position = rand(1..9).to_s
+    computer_position = @choices.sample
+    @choices.delete(computer_position)
+    computer_position
 end
 
 end
